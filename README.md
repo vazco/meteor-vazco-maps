@@ -1,7 +1,7 @@
 ## VazcoMaps - Google Maps Wrapper
 ##### based on great stuff from: 
-- [http://hpneo.github.io/gmaps/](gmaps)
-- [https://github.com/drewjw81/meteor-googlemaps/](meteor-googlemaps)
+- <a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
+- <a href="https://github.com/drewjw81/meteor-googlemaps/">https://github.com/drewjw81/meteor-googlemaps/</a>
 
 ### Map Init:
 
@@ -109,4 +109,4 @@
     });
     
 ### gMaps.js plugin documentation and demos
-[http://hpneo.github.io/gmaps/](gmaps)
+<a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
