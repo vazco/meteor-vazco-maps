@@ -1,0 +1,9 @@
+{
+  "name": "VazcoMaps",
+  "description": "Google Maps wrapper with gmaps.js plugin",
+  "homepage": "http://vazco.eu",
+  "author": "Vazco.eu",
+  "version": "0.0.1",
+  "git": "",
+  "packages": {}
+}
