@@ -4,6 +4,6 @@
   "homepage": "http://vazco.eu",
   "author": "Vazco.eu",
   "version": "0.0.1",
-  "git": "",
+  "git": "https://github.com/vazco/meteor-vazco-maps.git",
   "packages": {}
 }
