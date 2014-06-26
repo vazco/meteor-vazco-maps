@@ -2137,7 +2137,7 @@ VazcoMaps.init = function(parameters, callback) {
   firstScript = document.getElementsByTagName("script")[0];
   firstScript.parentNode.insertBefore(script, firstScript);
 
-  //add marker closter
+  //add marker clusterer
   var scriptMC = document.createElement("script");
     scriptMC.type = "text/javascript";
     scriptMC.async = !0;
