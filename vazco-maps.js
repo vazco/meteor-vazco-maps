@@ -2143,7 +2143,6 @@ VazcoMaps.init = function(parameters, callback) {
     scriptMC.async = !0;
     scriptMC.src =  'http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js';
 
-  scriptMC.src += queryString;
   firstScript.parentNode.insertBefore(scriptMC, firstScript);
 }
 
