@@ -256,6 +256,12 @@ var GMaps = (function(global) {
 
     if (markerClustererFunction) {
       this.markerClusterer = markerClustererFunction.apply(this, [this.map]);
+        if(options.markerClustererMaxZoom) {
+            this.markerClusterer.maxZoom_ = options.markerClustererMaxZoom;
+        }
+        if(options.markerClustererGridSize) {
+            this.markerClusterer.gridSize_ = options.markerClustererGridSize;
+        }
     }
 
     var buildContextMenuHTML = function(control, e) {
