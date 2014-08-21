@@ -2143,12 +2143,5 @@ VazcoMaps.init = function(parameters, callback) {
   firstScript = document.getElementsByTagName("script")[0];
   firstScript.parentNode.insertBefore(script, firstScript);
 
-  //add marker clusterer
-  var scriptMC = document.createElement("script");
-    scriptMC.type = "text/javascript";
-    scriptMC.async = !0;
-    scriptMC.src =  'http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0/src/markerclusterer.js';
-
-  firstScript.parentNode.insertBefore(scriptMC, firstScript);
 }
 
