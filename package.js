@@ -1,9 +1,10 @@
 Package.describe({
+    name: 'vazco:maps',
     summary: 'Google Maps wrapper with gmaps.js plugin'
 });
 
-Package.on_use(function (api) {
-    api.add_files(['vazco-maps.js'], 'client');
-    api.add_files(['markerclusterer.js'], 'client');
+Package.onUse(function (api) {
+    api.addFiles(['vazco-maps.js'], 'client');
+    api.addFiles(['markerclusterer.js'], 'client');
     api.export('VazcoMaps');
 });
