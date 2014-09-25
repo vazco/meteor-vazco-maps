@@ -1,6 +1,7 @@
 Package.describe({
     name: 'vazco:maps',
-    summary: 'Google Maps wrapper with gmaps.js plugin'
+    summary: 'Google Maps wrapper with gmaps.js plugin',
+    git: 'https://github.com/vazco/meteor-vazco-maps.git'
 });
 
 Package.onUse(function (api) {
