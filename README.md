@@ -1,35 +1,17 @@
 ## VazcoMaps - Google Maps Wrapper
-##### based on great stuff from: 
+##### based on great stuff from:
 - <a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
 - <a href="https://github.com/drewjw81/meteor-googlemaps/">https://github.com/drewjw81/meteor-googlemaps/</a>
 
-### Map Init:
+### Demo
 
-    var tmpl = this; //template rendered
-    VazcoMaps.init({
-        'sensor': true, //optional
-        'key': 'MY-GOOGLEMAPS-API-KEY', //optional
-        'language': 'de' //optional
-    }, function() {
-    
-        // your map code with gMaps.js plugin:
-        
-        tmpl.mapEngine = VazcoMaps.gMaps();
+[http://vazco-maps-demo.meteor.com](http://vazco-maps-demo.meteor.com)
 
-        tmpl.newMap = new tmpl.mapEngine({
-            div: '#map-canvas',
-            lat: 52.22968,
-            lng: 21.01223
-        });
-        
-        // your map code with standard Google Api:
-        // var mapOptions = {
-        //     zoom: 13
-        // };
-        // tmpl.newMap = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    });
+### Demo code
 
-### Example:
+[https://github.com/vazco/vazco-maps-demo-app](https://github.com/vazco/vazco-maps-demo-app)
+
+### Usage example:
 
 #### HTML:
 
@@ -38,27 +20,27 @@
           {{> mapCanvas2}}
       </div>
     </template>
-    
+
     <template name="mapCanvas2">
         <div id="map-canvas2" class="map-canvas"></div>
     </template>
-    
+
 #### JS (init)
 
     Template.mapCanvas2.rendered = function () {
         var tmpl = this;
 
         VazcoMaps.init({}, function() {
-    
+
             tmpl.mapEngine = VazcoMaps.gMaps();
-    
-            tmpl.newMap2 = new tmpl.mapEngine({ 
+
+            tmpl.newMap2 = new tmpl.mapEngine({
                 div: '#map-canvas2',
                 lat: 51.10789,
                 lng: 17.03854,
                 zoom: 6
             });
-    
+
             tmpl.newMap2.drawRoute({
                 origin: [51.10789, 17.03854],
                 destination: [52.22968, 21.01223],
@@ -67,18 +49,18 @@
                 strokeOpacity: 0.6,
                 strokeWeight: 6
             });
-    
+
         });
 
     };
-    
+
 #### JS (events)
 
     Template.mapCanvas.events({
         'submit form': function(e, tmpl) {
           e.preventDefault();
           var searchInput = $(e.target).find('#address');
-          
+
           tmpl.newMap.removeMarkers();
           tmpl.mapEngine.geocode({
             address: searchInput.val(),
@@ -104,9 +86,35 @@
               }
             }
           });
-          
+
         }
     });
-    
+
+### Map settings example:
+
+    var tmpl = this; //template rendered
+    VazcoMaps.init({
+        'sensor': true, //optional
+        'key': 'MY-GOOGLEMAPS-API-KEY', //optional
+        'language': 'de' //optional
+    }, function() {
+
+        // your map code with gMaps.js plugin:
+
+        tmpl.mapEngine = VazcoMaps.gMaps();
+
+        tmpl.newMap = new tmpl.mapEngine({
+            div: '#map-canvas',
+            lat: 52.22968,
+            lng: 21.01223
+        });
+
+        // your map code with standard Google Api:
+        // var mapOptions = {
+        //     zoom: 13
+        // };
+        // tmpl.newMap = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    });
+
 ### gMaps.js plugin documentation and demos
 <a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
