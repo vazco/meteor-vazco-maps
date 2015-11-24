@@ -1,6 +1,6 @@
 /*!
  * VazcoMaps - Google maps with gMaps.js wrapper
- * based on: 
+ * based on:
  * gMaps.js plugin : http://hpneo.github.com/gmaps/
  * meteor-googlemaps : https://github.com/drewjw81/meteor-googlemaps/
  */
@@ -279,7 +279,7 @@ var GMaps = (function(global) {
       if (!getElementById('gmaps_context_menu')) return;
 
       var context_menu_element = getElementById('gmaps_context_menu');
-      
+
       context_menu_element.innerHTML = html;
 
       var context_menu_items = context_menu_element.getElementsByTagName('a'),
@@ -316,11 +316,11 @@ var GMaps = (function(global) {
 
         var overlay = new google.maps.OverlayView();
         overlay.setMap(self.map);
-        
+
         overlay.draw = function() {
           var projection = overlay.getProjection(),
               position = e.marker.getPosition();
-          
+
           e.pixel = projection.fromLatLngToContainerPixel(position);
 
           buildContextMenuHTML(control, e);
@@ -496,7 +496,7 @@ GMaps.prototype.createControl = function(options) {
   var control = document.createElement('div');
 
   control.style.cursor = 'pointer';
-  
+
   if (options.disableDefaultStyles !== true) {
     control.style.fontFamily = 'Roboto, Arial, sans-serif';
     control.style.fontSize = '11px';
@@ -539,7 +539,7 @@ GMaps.prototype.addControl = function(options) {
 
   var control = this.createControl(options);
   this.controls.push(control);
-  
+
   this.map.controls[position].push(control);
 
   return control;
@@ -606,7 +606,7 @@ GMaps.prototype.createMarker = function(options) {
           if(!me.pixel){
             me.pixel = map.getProjection().fromLatLngToPoint(me.latLng)
           }
-          
+
           options[name].apply(this, [me]);
         });
       }
@@ -719,7 +719,7 @@ GMaps.prototype.removeMarkers = function (collection) {
     for (var i = 0; i < this.markers.length; i++) {
       this.markers[i].setMap(null);
     }
-    
+
     this.markers = new_markers;
   }
   else {
@@ -763,7 +763,7 @@ GMaps.prototype.drawOverlay = function(options) {
     if (!options.layer) {
       options.layer = 'overlayLayer';
     }
-    
+
     var panes = this.getPanes(),
         overlayLayer = panes[options.layer],
         stop_overlay_events = ['contextmenu', 'DOMMouseScroll', 'dblclick', 'mousedown'];
@@ -1363,7 +1363,7 @@ GMaps.prototype.drawRoute = function(options) {
           strokeOpacity: options.strokeOpacity,
           strokeWeight: options.strokeWeight
         });
-        
+
         if (options.callback) {
           options.callback(e[e.length - 1]);
         }
@@ -1418,7 +1418,7 @@ GMaps.prototype.travelRoute = function(options) {
 
 GMaps.prototype.drawSteppedRoute = function(options) {
   var self = this;
-  
+
   if (options.origin && options.destination) {
     this.getRoutes({
       origin: options.origin,
@@ -1563,7 +1563,7 @@ GMaps.prototype.toImage = function(options) {
 
   if (this.markers.length > 0) {
     static_map_options['markers'] = [];
-    
+
     for (var i = 0; i < this.markers.length; i++) {
       static_map_options['markers'].push({
         lat: this.markers[i].getPosition().lat(),
@@ -1574,7 +1574,7 @@ GMaps.prototype.toImage = function(options) {
 
   if (this.polylines.length > 0) {
     var polyline = this.polylines[0];
-    
+
     static_map_options['polyline'] = {};
     static_map_options['polyline']['path'] = google.maps.geometry.encoding.encodePath(polyline.getPath());
     static_map_options['polyline']['strokeColor'] = polyline.strokeColor
@@ -1598,7 +1598,7 @@ GMaps.staticMapURL = function(options){
   static_root += '?';
 
   var markers = options.markers;
-  
+
   delete options.markers;
 
   if (!markers && options.marker) {
@@ -1647,10 +1647,6 @@ GMaps.staticMapURL = function(options){
   if (!options.zoom && options.zoom !== false) {
     options.zoom = 15;
   }
-
-  var sensor = options.hasOwnProperty('sensor') ? !!options.sensor : true;
-  delete options.sensor;
-  parameters.push('sensor=' + sensor);
 
   for (var param in options) {
     if (options.hasOwnProperty(param)) {
@@ -1974,7 +1970,7 @@ GMaps.geocode = function(options) {
   delete options.lat;
   delete options.lng;
   delete options.callback;
-  
+
   this.geocoder.geocode(options, function(results, status) {
     callback(results, status);
   });
@@ -2090,7 +2086,7 @@ if (!Array.prototype.indexOf) {
       return -1;
   }
 }
-  
+
 return GMaps;
 };
 
@@ -2123,11 +2119,8 @@ VazcoMaps.init = function(parameters, callback) {
   script.type = "text/javascript";
   script.async = !0;
   script.src = ("https:" === document.location.protocol ? "https:" : "http:") + '//maps.googleapis.com/maps/api/js';
-  
+
   parameters = parameters || {};
-  if ('undefined' == typeof parameters['sensor']) {
-      parameters['sensor'] = false;
-  };
   parameters['callback'] = 'VazcoMaps.callback';
 
   var queryString = "?";
@@ -2144,4 +2137,3 @@ VazcoMaps.init = function(parameters, callback) {
   firstScript.parentNode.insertBefore(script, firstScript);
 
 }
-
