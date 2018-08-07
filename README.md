@@ -1,4 +1,15 @@
-## VazcoMaps - Google Maps Wrapper
+<h1 align="center">
+    <a href="https://github.com/vazco">vazco</a>/Vazco Maps
+</h1>
+
+&nbsp;
+
+<h3 align="center">
+  -- Abandonware. This package is deprecated! --
+</h3>
+
+&nbsp;
+
 ##### based on great stuff from:
 - <a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
 - <a href="https://github.com/drewjw81/meteor-googlemaps/">https://github.com/drewjw81/meteor-googlemaps/</a>
@@ -118,3 +129,9 @@
 
 ### gMaps.js plugin documentation and demos
 <a href="http://hpneo.github.io/gmaps/">http://hpneo.github.io/gmaps/</a>
+
+### License
+
+<img src="https://vazco.eu/banner.png" align="right">
+
+**Like every package maintained by [Vazco](https://vazco.eu/), Vazco Maps is [MIT licensed](https://github.com/vazco/uniforms/blob/master/LICENSE).**
